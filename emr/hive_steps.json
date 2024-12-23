@@ -1,0 +1,30 @@
+[
+    {
+        "Name": "Create Database",
+        "ActionOnFailure": "CONTINUE",
+        "HadoopJarStep": {
+            "Jar": "command-runner.jar",
+            "Args": [
+                "hive-script",
+                "--run-hive-script",
+                "--args",
+                "-e",
+                "CREATE DATABASE IF NOT EXISTS logistics_db;"
+            ]
+        }
+    },
+    {
+        "Name": "Create Table",
+        "ActionOnFailure": "CONTINUE",
+        "HadoopJarStep": {
+            "Jar": "command-runner.jar",
+            "Args": [
+                "hive-script",
+                "--run-hive-script",
+                "--args",
+                "-e",
+                "CREATE EXTERNAL TABLE IF NOT EXISTS logistics_db.logistics_data (delivery_id INT, `date` STRING, origin STRING, destination STRING, vehicle_type STRING, delivery_status STRING, delivery_time STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' STORED AS TEXTFILE LOCATION 's3://logistics-raw/input_data/';"
+            ]
+        }
+    }
+]

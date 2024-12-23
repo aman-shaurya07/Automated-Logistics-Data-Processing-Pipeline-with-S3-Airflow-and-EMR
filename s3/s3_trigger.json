@@ -1,0 +1,17 @@
+{
+    "LambdaFunctionConfigurations": [
+        {
+            "LambdaFunctionArn": "<LAMBDA_FUNCTION_ARN>",
+            "Events": ["s3:ObjectCreated:*"],
+            "Filter": {
+                "Key": {
+                    "FilterRules": [
+                        { "Name": "prefix", "Value": "input_data/" },
+                        { "Name": "suffix", "Value": ".csv" }
+                    ]
+                }
+            }
+        }
+    ]
+}
+

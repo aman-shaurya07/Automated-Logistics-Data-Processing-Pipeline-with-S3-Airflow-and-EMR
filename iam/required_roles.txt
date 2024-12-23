@@ -1,0 +1,6 @@
+### IAM Roles Required ###
+1. AmazonS3FullAccess
+2. AmazonSQSFullAccess
+3. AmazonEMRFullAccessPolicy_v2
+4. AWSLambdaBasicExecutionRole
+5. AWSLambdaSQSQueueExecutionRole
